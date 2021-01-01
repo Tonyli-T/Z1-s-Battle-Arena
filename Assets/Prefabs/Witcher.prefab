@@ -13,13 +13,15 @@ GameObject:
   - component: {fileID: 7830020333492840401}
   - component: {fileID: 7830020333492840400}
   - component: {fileID: 2532598732556252897}
+  - component: {fileID: 556202686596689505}
+  - component: {fileID: 556202686596689509}
   m_Layer: 0
   m_Name: Witcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7830020333492840403
 Transform:
   m_ObjectHideFlags: 0
@@ -144,7 +146,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e02a20a815a4e942ad75b7f5ac13371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &556202686596689505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830020333492840406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39768029b0f6554c977a24f61e41d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  damage: 0
+  magicResist: 0
+  armor: 0
+--- !u!114 &556202686596689509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830020333492840406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a07b17145ce6da42a415220751c2abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rb2d: {fileID: 0}
   velocity: 0
-  destination: {x: 0, y: 0}
-  relativeDestination: {x: 0, y: 0}
+  xAxis: 0
+  yAxis: 0

@@ -13,13 +13,15 @@ GameObject:
   - component: {fileID: 2119492865323461643}
   - component: {fileID: 2119492865323461642}
   - component: {fileID: 4568250919106100635}
+  - component: {fileID: 3652494418802000169}
+  - component: {fileID: 3652494418802000170}
   m_Layer: 0
   m_Name: Lycan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2119492865323461641
 Transform:
   m_ObjectHideFlags: 0
@@ -144,7 +146,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec55937fe2814e6488b1630090df38ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3652494418802000169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119492865323461644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39768029b0f6554c977a24f61e41d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  damage: 0
+  magicResist: 0
+  armor: 0
+--- !u!114 &3652494418802000170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119492865323461644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a07b17145ce6da42a415220751c2abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rb2d: {fileID: 0}
   velocity: 0
-  destination: {x: 0, y: 0}
-  relativeDestination: {x: 0, y: 0}
+  xAxis: 0
+  yAxis: 0
