@@ -11647,7 +11647,7 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896011174}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -11752,7 +11752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae3cfce100e6f44b956a80759274e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creep: {fileID: 5459969795222803876, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
+  creep: {fileID: 2277697000628871188, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
 --- !u!114 &1969497515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11779,6 +11779,7 @@ GameObject:
   - component: {fileID: 2075420067}
   - component: {fileID: 2075420070}
   - component: {fileID: 2075420069}
+  - component: {fileID: 2075420071}
   m_Layer: 0
   m_Name: Base 2
   m_TagString: Enemy Building
@@ -11878,64 +11879,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
---- !u!1001 &4746225736416662268
-PrefabInstance:
+--- !u!61 &2075420071
+BoxCollider2D:
   m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075420066}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0003450364, y: 0.0010165311}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4033626726612882048, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: goal
-      value: 
-      objectReference: {fileID: 2075420068}
-    - target: {fileID: 5459969795222803876, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_Name
-      value: Creep
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742941594254840, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742941594254840, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.9841802
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742941594254840, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.018034961
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742941594254840, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.3618827
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742941594254840, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742941594254840, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742941594254840, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742941594254840, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742941594254840, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742941594254840, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742941594254840, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ec2947b598cbf6b4a9017c3e0869be2d, type: 3}
+  m_Size: {x: 0.13998681, y: 0.14034706}
+  m_EdgeRadius: 0
