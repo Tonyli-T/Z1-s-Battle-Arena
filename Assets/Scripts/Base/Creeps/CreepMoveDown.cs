@@ -38,7 +38,7 @@ public class CreepMoveDown : MonoBehaviour
 		{
 			moveTowards = GameObject.Find("Traction Point Down").transform.position - transform.position;
 			rb2D.AddForce(moveTowards.normalized * speed, ForceMode2D.Force);
-			Debug.Log(moveTowards.magnitude);
+			//Debug.Log(moveTowards.magnitude);
 			if (moveTowards.magnitude <= 0.1)
 			{
 				phase1 = false;
