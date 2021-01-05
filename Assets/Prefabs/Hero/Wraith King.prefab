@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 302406197565958567}
   - component: {fileID: 5025456302948849567}
   m_Layer: 0
-  m_Name: Rogue knight
+  m_Name: Wraith King
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306d559b0966d564196b9e5a18cba190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb2d: {fileID: 0}
-  velocity: 0
-  destination: {x: 0, y: 0}
-  relativeDestination: {x: 0, y: 0}
