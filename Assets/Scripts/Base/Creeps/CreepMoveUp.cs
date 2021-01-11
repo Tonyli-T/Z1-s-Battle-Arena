@@ -33,7 +33,7 @@ public class CreepMoveUp : MonoBehaviour
 	public void MoveUp()
 	{
 		Vector2 moveTowards;
-		Debug.Log(true);
+
 		if (phase1)
 		{
 			moveTowards = GameObject.Find("Traction Point Up").transform.position - transform.position;
@@ -41,7 +41,6 @@ public class CreepMoveUp : MonoBehaviour
 
 			if (moveTowards.magnitude <= 0.1)
 			{
-				rb2D.velocity = new Vector2(0, 0);
 				phase1 = false;
 			}
 		}
