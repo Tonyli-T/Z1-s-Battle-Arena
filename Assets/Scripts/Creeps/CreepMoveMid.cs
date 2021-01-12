@@ -3,6 +3,7 @@
 public class CreepMoveMid : MonoBehaviour
 {
 	private GameObject enemyBase;
+	private Animator creepAnimator;
 	private Rigidbody2D rb2D;
 	public float speed = 5;
 	public float damage = 5;
@@ -11,15 +12,14 @@ public class CreepMoveMid : MonoBehaviour
 	void Start()
 	{
 		rb2D = GetComponent<Rigidbody2D>();
+		creepAnimator = GetComponent<Animator>();
 
 		if (gameObject.CompareTag("太阳圣殿"))
 		{
-			//Debug.Log(true);
 			enemyBase = GameObject.Find("奥姆真理");
 		}
 		else if (gameObject.CompareTag("奥姆真理"))
 		{
-			//Debug.Log(false);
 			enemyBase = GameObject.Find("太阳圣殿");
 		}
 	}
@@ -40,6 +40,7 @@ public class CreepMoveMid : MonoBehaviour
 		{
 			if (collision.CompareTag("奥姆真理"))
 			{
+				creepAnimator.SetBool("IsAttacking", true);
 				collision.GetComponent<BaseStats>().currentHealth -= damage * Time.deltaTime;
 			}
 		}
@@ -47,8 +48,14 @@ public class CreepMoveMid : MonoBehaviour
 		{
 			if (collision.CompareTag("太阳圣殿"))
 			{
+				creepAnimator.SetBool("IsAttacking", true);
 				collision.GetComponent<BaseStats>().currentHealth -= damage * Time.deltaTime;
 			}
 		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		creepAnimator.SetBool("IsAttacking", false);
 	}
 }

@@ -3,6 +3,7 @@
 public class CreepMoveDown : MonoBehaviour
 {
 	private GameObject enemyBase;
+	private Animator creepAnimator;
 	private Rigidbody2D rb2D;
 	public float speed = 5;
 	public float damage = 5;
@@ -12,6 +13,7 @@ public class CreepMoveDown : MonoBehaviour
 	void Start()
 	{
 		rb2D = GetComponent<Rigidbody2D>();
+		creepAnimator = GetComponent<Animator>();
 
 		if (gameObject.CompareTag("太阳圣殿"))
 		{
@@ -49,7 +51,6 @@ public class CreepMoveDown : MonoBehaviour
 		{
 			moveTowards = enemyBase.transform.position - transform.position;
 			rb2D.AddForce(moveTowards.normalized * speed, ForceMode2D.Force);
-			//Debug.Log(true);
 		}
 	}
 
@@ -62,6 +63,7 @@ public class CreepMoveDown : MonoBehaviour
 			if (collision.CompareTag("奥姆真理"))
 			{
 				collision.GetComponent<BaseStats>().currentHealth -= damage * Time.deltaTime;
+				creepAnimator.SetBool("IsAttacking", true);
 			}
 		}
 		else if (gameObject.CompareTag("奥姆真理"))
@@ -69,7 +71,13 @@ public class CreepMoveDown : MonoBehaviour
 			if (collision.CompareTag("太阳圣殿"))
 			{
 				collision.GetComponent<BaseStats>().currentHealth -= damage * Time.deltaTime;
+				creepAnimator.SetBool("IsAttacking", true);
 			}
 		}
+	}
+
+	private void OnTrigerExit2D(Collider2D collision)
+	{
+		creepAnimator.SetBool("IsAttacking", false);
 	}
 }
