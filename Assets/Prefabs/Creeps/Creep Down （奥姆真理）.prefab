@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2277697000628871189}
   - component: {fileID: -5605959882933989491}
   - component: {fileID: 7249225062735581916}
+  - component: {fileID: -1379846171609504005}
+  - component: {fileID: 8428430991759502171}
   m_Layer: 0
   m_Name: "Creep Down \uFF08\u5965\u59C6\u771F\u7406\uFF09"
   m_TagString: "\u5965\u59C6\u771F\u7406"
@@ -31,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 2277697000628871188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.32, y: -16.42, z: -2.3618827}
-  m_LocalScale: {x: 0.34610772, y: 0.36949658, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -152,8 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a52273c42be798340937771c374e5e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.66
-  damage: 5.01
+  speed: 0.5
+  damage: 5
   phase1: 1
 --- !u!114 &7249225062735581916
 MonoBehaviour:
@@ -169,3 +171,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   currentHealth: 50
+--- !u!95 &-1379846171609504005
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2277697000628871188}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25870ed9e4545da46a7394e3b2ae591d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8428430991759502171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2277697000628871188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RootBone: {fileID: 0}
+  m_BoneTransforms: []
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_UseBatching: 1
+  m_AlwaysUpdate: 1

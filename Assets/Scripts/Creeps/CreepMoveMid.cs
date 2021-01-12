@@ -14,12 +14,12 @@ public class CreepMoveMid : MonoBehaviour
 
 		if (gameObject.CompareTag("太阳圣殿"))
 		{
-			Debug.Log(true);
+			//Debug.Log(true);
 			enemyBase = GameObject.Find("奥姆真理");
 		}
 		else if (gameObject.CompareTag("奥姆真理"))
 		{
-			Debug.Log(false);
+			//Debug.Log(false);
 			enemyBase = GameObject.Find("太阳圣殿");
 		}
 	}
@@ -27,7 +27,7 @@ public class CreepMoveMid : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log(false);
+		//Debug.Log(false);
 		var moveTowards = enemyBase.transform.position - transform.position;
 		rb2D.AddForce(moveTowards.normalized * speed, ForceMode2D.Force);
 	}

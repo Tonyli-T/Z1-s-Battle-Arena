@@ -33,7 +33,7 @@ public class CreepMoveUp : MonoBehaviour
 	public void MoveUp()
 	{
 		Vector2 moveTowards;
-		Debug.Log(true);
+		//Debug.Log(true);
 		if (phase1)
 		{
 			moveTowards = GameObject.Find("Traction Point Up").transform.position - transform.position;
