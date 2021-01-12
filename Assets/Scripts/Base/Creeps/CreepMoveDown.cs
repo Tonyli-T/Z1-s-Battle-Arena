@@ -38,9 +38,9 @@ public class CreepMoveDown : MonoBehaviour
 		{
 			moveTowards = GameObject.Find("Traction Point Down").transform.position - transform.position;
 			rb2D.AddForce(moveTowards.normalized * speed, ForceMode2D.Force);
+			Debug.Log(moveTowards.magnitude);
 			if (moveTowards.magnitude <= 0.1)
 			{
-				rb2D.velocity = new Vector2(0, 0);
 				phase1 = false;
 			}
 		}
@@ -48,7 +48,7 @@ public class CreepMoveDown : MonoBehaviour
 		{
 			moveTowards = enemyBase.transform.position - transform.position;
 			rb2D.AddForce(moveTowards.normalized * speed, ForceMode2D.Force);
-			//Debug.Log(true);
+			Debug.Log(true);
 		}
 	}
 
