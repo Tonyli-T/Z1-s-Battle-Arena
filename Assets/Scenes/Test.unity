@@ -329,11 +329,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 302406197565958561, guid: e9868356650505648a82532291fd77b0, type: 3}
       propertyPath: m_Name
-      value: Rogue knight
+      value: Wraith King
       objectReference: {fileID: 0}
     - target: {fileID: 302406197565958561, guid: e9868356650505648a82532291fd77b0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 302406197565958564, guid: e9868356650505648a82532291fd77b0, type: 3}
       propertyPath: m_RootOrder
@@ -379,6 +379,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 302406197565958565, guid: e9868356650505648a82532291fd77b0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cf33aad951fea9b44b0d227eaf9e1ef3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9868356650505648a82532291fd77b0, type: 3}
 --- !u!1001 &1933012209
@@ -390,11 +394,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5303237454669869504, guid: edddc3bb796a4794db4d7429bb383529, type: 3}
       propertyPath: m_Name
-      value: Brawny
+      value: Royal Knight
       objectReference: {fileID: 0}
     - target: {fileID: 5303237454669869504, guid: edddc3bb796a4794db4d7429bb383529, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5303237454669869509, guid: edddc3bb796a4794db4d7429bb383529, type: 3}
       propertyPath: m_RootOrder
