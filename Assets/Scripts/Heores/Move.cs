@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-	public Rigidbody2D rb2d;
+	private Rigidbody2D rb2d;
 	public float velocity;
 	public float xAxis;
 	public float yAxis;
 
 	void Start()
 	{
-		
+		rb2d = GetComponent<Rigidbody2D>();
 	}
 
 	void Update()

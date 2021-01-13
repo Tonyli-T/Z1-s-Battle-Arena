@@ -3,6 +3,7 @@
 public class CreepMoveDown : MonoBehaviour
 {
 	private GameObject enemyBase;
+	private AudioSource creep_AudioSource;
 	private Animator creepAnimator;
 	private Rigidbody2D rb2D;
 	public float speed = 5;
@@ -14,6 +15,8 @@ public class CreepMoveDown : MonoBehaviour
 	{
 		rb2D = GetComponent<Rigidbody2D>();
 		creepAnimator = GetComponent<Animator>();
+		creep_AudioSource = GetComponent<AudioSource>();
+		creep_AudioSource.mute = true;
 
 		if (gameObject.CompareTag("太阳圣殿"))
 		{
@@ -64,6 +67,7 @@ public class CreepMoveDown : MonoBehaviour
 			{
 				collision.GetComponent<BaseStats>().currentHealth -= damage * Time.deltaTime;
 				creepAnimator.SetBool("IsAttacking", true);
+				creep_AudioSource.mute = false;
 			}
 		}
 		else if (gameObject.CompareTag("奥姆真理"))
@@ -72,6 +76,7 @@ public class CreepMoveDown : MonoBehaviour
 			{
 				collision.GetComponent<BaseStats>().currentHealth -= damage * Time.deltaTime;
 				creepAnimator.SetBool("IsAttacking", true);
+				creep_AudioSource.mute = false;
 			}
 		}
 	}
@@ -79,5 +84,6 @@ public class CreepMoveDown : MonoBehaviour
 	private void OnTrigerExit2D(Collider2D collision)
 	{
 		creepAnimator.SetBool("IsAttacking", false);
+		creep_AudioSource.mute = true;
 	}
 }
