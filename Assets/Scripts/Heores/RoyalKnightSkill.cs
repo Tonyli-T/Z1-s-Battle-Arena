@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class RoyalKnightSkill : MonoBehaviour
 {
+	private Animator Animator_Royal;
+	public AudioClip AudioClip_SkillQ;
+	private AudioSource AudioSource_Knight;
+
+	public bool attackSignal = false;
+
 	public bool allowQ;
-	public float startTimeQ;
-	public float currentTimeQ;
+	private float startTimeQ;
 
 	public bool allowW;
-	public float startTimeW;
-	public float currentTimeW;
+	private float startTimeW;
 
 	public bool allowE;
 	public bool lockE;
-	public float startTimeE;
-	public float currentTimeE;	
+	private float startTimeE;
 
-	private void Start()
+	void Start()
 	{
-		
+		Animator_Royal = GetComponent<Animator>();
+		AudioSource_Knight = GetComponent<AudioSource>();
 	}
 	
-	private void Update()
+	void Update()
 	{
 		Attack();
 		Cast_Spell();
@@ -36,6 +40,8 @@ public class RoyalKnightSkill : MonoBehaviour
 		{
 			gameObject.GetComponent<Stats>().magicResist = 100;
 			gameObject.GetComponent<Stats>().armor = 100;
+			AudioSource_Knight.clip = AudioClip_SkillQ;
+			AudioSource_Knight.Play();
 
 			allowQ = false;
 			startTimeQ = Time.time;
@@ -51,7 +57,7 @@ public class RoyalKnightSkill : MonoBehaviour
 		{
 			gameObject.GetComponent<Stats>().health += 200;
 			gameObject.GetComponent<Stats>().damage += 200;
-			gameObject.transform.localScale += new Vector3(1, 1, 0);
+			gameObject.transform.localScale += new Vector3(2, 1, 0);
 
 			allowE = false;
 			lockE = true;
@@ -94,13 +100,24 @@ public class RoyalKnightSkill : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.A))
 		{
-
+			attackSignal = true;
+			Animator_Royal.SetBool("IsAttacking", true);
+		}
+		else
+		{
+			//Animator_Royal.SetBool("IsAttacking", false);
 		}
 	}
 
 	// Calculating damage
-	private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerStay2D(Collider2D collision)
 	{
-		collision.gameObject.GetComponent<Stats>().health -= gameObject.GetComponent<Stats>().damage;
+	/*	if (attackSignal)
+		{*/
+			collision.gameObject.GetComponent<Stats>().health -= gameObject.GetComponent<Stats>().damage;
+			collision.gameObject.GetComponent<BaseStats>().currentHealth -= gameObject.GetComponent<Stats>().damage;
+			Debug.Log(true);
+			//attackSignal = false;
+		/*}*/
 	}
 }

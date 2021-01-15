@@ -20,8 +20,8 @@ public class BaseStats : MonoBehaviour
 	{
 		if (currentHealth <= 0)
 		{
-			AudioSource.clip = destroySound_AudioClip;
-			AudioSource.Play();
+			//AudioSource.clip = destroySound_AudioClip;
+			//AudioSource.Play();
 			// TODO... ParticleSystem
 			GameObject.Destroy(gameObject);
 		}

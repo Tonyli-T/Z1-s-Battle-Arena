@@ -25,11 +25,11 @@ public class SpawnManager : MonoBehaviour
 	{
 		if (gameObject.CompareTag("太阳圣殿"))
 		{
-            Instantiate(creepMid, transform.position + new Vector3(3, 0, 0), transform.rotation);
+            Instantiate(creepMid, transform.position + new Vector3(5, 0, 0), transform.rotation);
         }
         else if (gameObject.CompareTag("奥姆真理"))
         {
-            Instantiate(creepMid, transform.position - new Vector3(3, 0, 0), transform.rotation);
+            Instantiate(creepMid, transform.position - new Vector3(5, 0, 0), transform.rotation);
         }
 
         Instantiate(creepUp, transform.position + new Vector3(0, 3, 0), transform.rotation);
