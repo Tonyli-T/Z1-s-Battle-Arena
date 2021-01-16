@@ -154,12 +154,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2277697000628871188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dac5ef722886ae42ab3ee55da5df99e, type: 3}
+  m_Script: {fileID: 11500000, guid: d39768029b0f6554c977a24f61e41d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroySound_AudioClip: {fileID: 8300000, guid: f94699714bc34a24583886479fb97e74, type: 3}
-  maxHealth: 50
-  currentHealth: 50
+  health: 50
+  damage: 5
+  magicResist: 0
+  armor: 0
 --- !u!114 &-5398180309283005822
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -66,7 +66,7 @@ public class CreepMoveUp : MonoBehaviour
 		{
 			if (collision.CompareTag("奥姆真理"))
 			{
-				collision.GetComponent<BaseStats>().currentHealth -= damage * Time.deltaTime;
+				collision.GetComponent<Stats>().health -= damage * Time.deltaTime;
 				creep_AudioSource.mute = false;
 				creepAnimator.SetBool("IsAttacking", true);
 			}
@@ -75,7 +75,7 @@ public class CreepMoveUp : MonoBehaviour
 		{
 			if (collision.CompareTag("太阳圣殿"))
 			{
-				collision.GetComponent<BaseStats>().currentHealth -= damage * Time.deltaTime;
+				collision.GetComponent<Stats>().health -= damage * Time.deltaTime;
 				creep_AudioSource.mute = false;
 				creepAnimator.SetBool("IsAttacking", true);
 			}

@@ -8,4 +8,12 @@ public class Stats : MonoBehaviour
 	public float damage;
 	public float magicResist;
 	public float armor;
+
+	private void Update()
+	{
+		if (health <= 0)
+		{
+			GameObject.Destroy(gameObject);
+		}
+	}
 }

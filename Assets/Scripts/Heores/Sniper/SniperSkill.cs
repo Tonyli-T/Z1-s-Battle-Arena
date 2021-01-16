@@ -5,15 +5,20 @@ using UnityEngine;
 public class SniperSkill : MonoBehaviour
 {
 	public GameObject bullet;
+	private SpriteRenderer SpriteRenderer;
 	private GameObject currentBullet;
+	private AudioSource soundPlayer;
+	public AudioClip skill_Q;
 
-	public bool allowQ;
+	public float shootSpeed = 5;
+	public bool allowQ = true;
+	public bool lockQ = false;
 	public float startTimeQ;
-	public float currentTimeQ;
 
 	void Start()
 	{
-		
+		soundPlayer = GetComponent<AudioSource>();
+		SpriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	void Update()
@@ -32,7 +37,12 @@ public class SniperSkill : MonoBehaviour
 			gameObject.GetComponent<Stats>().armor += 50;
 			gameObject.GetComponent<Stats>().damage += 50;
 
+			soundPlayer.clip = skill_Q;
+			soundPlayer.Play();
+
+			SpriteRenderer.color = new Color(0, 1, 0, .5f);
 			allowQ = false;
+			lockQ = true;
 			startTimeQ = Time.time;
 		}
 
@@ -42,16 +52,18 @@ public class SniperSkill : MonoBehaviour
 		}
 
 		// Controlling the freeze time for Q
-		if (allowQ == false && Time.time - startTimeQ >= 2)
+		if (!allowQ && Time.time - startTimeQ >= 5)
+		{
+			allowQ = true;
+		}
+		else if (!allowQ && Time.time - startTimeQ >= 2 && lockQ)
 		{
 			gameObject.GetComponent<Stats>().magicResist -= 50;
 			gameObject.GetComponent<Stats>().armor -= 50;
 			gameObject.GetComponent<Stats>().damage -= 50;
-		}
-		else if (allowQ == false && Time.time - startTimeQ >= 5)
-		{
-			allowQ = true;
-		}
+			SpriteRenderer.color = new Color(1, 1, 1, 1);
+			lockQ = false;
+		}	
 	}
 
 	// Melle attack for Royal Knight
@@ -60,7 +72,8 @@ public class SniperSkill : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.A))
 		{
 			currentBullet = Instantiate(bullet, transform.position, transform.rotation);
-			currentBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(2, 2));
+			currentBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * Time.deltaTime * shootSpeed);
+			currentBullet.GetComponent<BulletBehaviour>().damage = GetComponent<Stats>().damage;
 		}
 	}
 }

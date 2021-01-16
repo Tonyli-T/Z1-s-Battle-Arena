@@ -6,7 +6,7 @@ TagManager:
   tags:
   - "\u5965\u59C6\u771F\u7406"
   - "\u592A\u9633\u5723\u6BBF"
-  - Enemy Building
+  - Enemy
   layers:
   - Default
   - TransparentFX

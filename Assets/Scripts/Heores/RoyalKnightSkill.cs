@@ -125,9 +125,8 @@ public class RoyalKnightSkill : MonoBehaviour
 	{
 	/*	if (attackSignal)
 		{*/
-			collision.gameObject.GetComponent<Stats>().health -= gameObject.GetComponent<Stats>().damage;
-			collision.gameObject.GetComponent<BaseStats>().currentHealth -= gameObject.GetComponent<Stats>().damage;
-			Debug.Log(true);
+			//collision.gameObject.GetComponent<Stats>().health -= gameObject.GetComponent<Stats>().damage;
+			//Debug.Log(true);
 			//attackSignal = false;
 		/*}*/
 	}

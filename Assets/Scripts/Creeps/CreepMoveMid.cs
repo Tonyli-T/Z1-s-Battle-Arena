@@ -44,7 +44,7 @@ public class CreepMoveMid : MonoBehaviour
 			{
 				creepAnimator.SetBool("IsAttacking", true);
 				creep_AudioSource.mute = false;
-				collision.GetComponent<BaseStats>().currentHealth -= damage * Time.deltaTime;
+				collision.GetComponent<Stats>().health -= damage * Time.deltaTime;
 			}
 		}
 		else if (gameObject.CompareTag("奥姆真理"))
@@ -53,7 +53,7 @@ public class CreepMoveMid : MonoBehaviour
 			{
 				creepAnimator.SetBool("IsAttacking", true);
 				creep_AudioSource.mute = false;
-				collision.GetComponent<BaseStats>().currentHealth -= damage * Time.deltaTime;
+				collision.GetComponent<Stats>().health -= damage * Time.deltaTime;
 			}
 		}
 	}
