@@ -5,8 +5,12 @@ using UnityEngine;
 public class RoyalKnightSkill : MonoBehaviour
 {
 	private Animator Animator_Royal;
+	private AudioSource AudioSource_Royal;
+	private SpriteRenderer SpriteRenderer_Royal;
+
 	public AudioClip AudioClip_SkillQ;
-	private AudioSource AudioSource_Knight;
+	public AudioClip AudioClip_SkillW;
+	public AudioClip AudioClip_SkillE;
 
 	public bool attackSignal = false;
 
@@ -23,7 +27,8 @@ public class RoyalKnightSkill : MonoBehaviour
 	void Start()
 	{
 		Animator_Royal = GetComponent<Animator>();
-		AudioSource_Knight = GetComponent<AudioSource>();
+		AudioSource_Royal = GetComponent<AudioSource>();
+		SpriteRenderer_Royal = GetComponent<SpriteRenderer>();
 	}
 	
 	void Update()
@@ -35,13 +40,13 @@ public class RoyalKnightSkill : MonoBehaviour
 	// The method used to cast spells
 	void Cast_Spell()
 	{
-		// Pressing the keys
 		if (Input.GetKeyDown(KeyCode.Q) && allowQ)
 		{
 			gameObject.GetComponent<Stats>().magicResist = 100;
 			gameObject.GetComponent<Stats>().armor = 100;
-			AudioSource_Knight.clip = AudioClip_SkillQ;
-			AudioSource_Knight.Play();
+			gameObject.transform.GetChild(4).gameObject.SetActive(true);
+			AudioSource_Royal.clip = AudioClip_SkillQ;
+			AudioSource_Royal.Play();
 
 			allowQ = false;
 			startTimeQ = Time.time;
@@ -49,6 +54,8 @@ public class RoyalKnightSkill : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.W) && allowW)
 		{
 			gameObject.transform.position += new Vector3(5, 0, 0);
+			AudioSource_Royal.clip = AudioClip_SkillW;
+			AudioSource_Royal.Play();
 
 			allowW = false;
 			startTimeW = Time.time;
@@ -57,7 +64,9 @@ public class RoyalKnightSkill : MonoBehaviour
 		{
 			gameObject.GetComponent<Stats>().health += 200;
 			gameObject.GetComponent<Stats>().damage += 200;
-			gameObject.transform.localScale += new Vector3(2, 1, 0);
+			SpriteRenderer_Royal.color = Color.red;
+			AudioSource_Royal.clip = AudioClip_SkillE;
+			AudioSource_Royal.Play();
 
 			allowE = false;
 			lockE = true;
@@ -65,14 +74,15 @@ public class RoyalKnightSkill : MonoBehaviour
 		}
 
 		// Controlling the freeze time for Q
-		if (allowQ == false && Time.time - startTimeQ >= 1)
+		if (allowQ == false && Time.time - startTimeQ >= 5)
+		{
+			allowQ = true;
+		}
+		else if (allowQ == false && Time.time - startTimeQ >= 1)
 		{
 			gameObject.GetComponent<Stats>().magicResist = 10;
 			gameObject.GetComponent<Stats>().armor = 20;
-		}
-		else if (allowQ == false && Time.time - startTimeQ >= 5)
-		{
-			allowQ = true;
+			gameObject.transform.GetChild(4).gameObject.SetActive(false);
 		}
 
 		// Controlling the freeze time for W
@@ -86,7 +96,8 @@ public class RoyalKnightSkill : MonoBehaviour
 		{
 			gameObject.GetComponent<Stats>().health -= 200;
 			gameObject.GetComponent<Stats>().damage -= 200;
-			gameObject.transform.localScale -= new Vector3(1, 1, 0);
+			SpriteRenderer_Royal.color = Color.white;
+
 			lockE = false;
 		}
 		else if (allowE == false && Time.time - startTimeE >= 30)
