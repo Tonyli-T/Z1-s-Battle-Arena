@@ -26,13 +26,18 @@ public class BulletBehaviour : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.CompareTag("Enemy"))
+		if (collision.CompareTag("奥姆真理"))
 		{
             if (Random.value <= hitBackProbability)
             {
                 SoundPlayer.clip = hitSound;
                 SoundPlayer.Play();
-                collision.attachedRigidbody.position += hitBackDistance;
+
+				if (!(collision.attachedRigidbody is null))
+				{
+                    collision.attachedRigidbody.position += hitBackDistance; // TODO null check
+                }
+
                 collision.GetComponent<Stats>().health -= damage;
             }
             else
