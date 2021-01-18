@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthMaskBehavior : MonoBehaviour
 {
-    public GameObject hero;
+    private GameObject hero;
     public GameObject healthBar;
     private Vector3 heaalthBarPos;
     private Stats heroStats;
@@ -14,6 +14,7 @@ public class HealthMaskBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hero = GetComponentInParent<InfoBarBehaviour>().hero;
         heaalthBarPos = healthBar.transform.position + new Vector3(7.5f, 0, 0);
         heroStats = hero.GetComponent<Stats>();
         health_Max = heroStats.health;

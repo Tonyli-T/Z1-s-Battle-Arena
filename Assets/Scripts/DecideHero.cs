@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class DecideHero : MonoBehaviour
 {
-    public GameObject hero;
+    public GameObject heroType;
 	public GameObject knob;
 
-    public void ChangeToMainScene()
+	public GameObject currentHero;
+
+	public void ChangeToMainScene()
 	{
-		DontDestroyOnLoad(Instantiate(hero, knob.transform.position, knob.transform.rotation));
+		currentHero = Instantiate(heroType, knob.transform.position, knob.transform.rotation);
+		DontDestroyOnLoad(currentHero);
 		SceneManager.LoadScene(0);
 	}
 }
