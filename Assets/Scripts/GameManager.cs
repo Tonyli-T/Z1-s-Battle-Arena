@@ -17,12 +17,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void ChangeSceneMain()
-    {
-        SceneManager.LoadScene(0);
-        //Instantiate();
-    }
-
     public void ChangeSceneMenu()
     {
         SceneManager.LoadScene(1);

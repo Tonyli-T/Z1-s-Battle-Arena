@@ -14,7 +14,7 @@ public class HealthMaskBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        heaalthBarPos = healthBar.transform.position;
+        heaalthBarPos = healthBar.transform.position + new Vector3(7.5f, 0, 0);
         heroStats = hero.GetComponent<Stats>();
         health_Max = heroStats.health;
     }
@@ -22,9 +22,9 @@ public class HealthMaskBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        health_Current = heroStats.health;
+/*        health_Current = heroStats.health;
         var healthProp = health_Current / health_Max;
-        Debug.Log(transform.position);
-        transform.position = heaalthBarPos + new Vector3(healthProp, 0, 0);
-    }
+        
+        transform.position = heaalthBarPos - new Vector3((1 - healthProp) * 7.5f, 0, 0);
+*/    }
 }
