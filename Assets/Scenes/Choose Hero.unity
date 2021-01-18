@@ -267,7 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67d1be8db091e7479af0c6fdef536cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 2706389420708707688, guid: f13c3a5917214e54c9ce87c0f3addc80, type: 3}
+  heroType: {fileID: 2706389420708707688, guid: f13c3a5917214e54c9ce87c0f3addc80, type: 3}
+  spriteType: {fileID: 21300000, guid: 355773e904ed20c4b9defddf892674cd, type: 3}
   knob: {fileID: 1831442551}
 --- !u!1 &316940610
 GameObject:
@@ -9283,7 +9284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67d1be8db091e7479af0c6fdef536cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 5303237454669869504, guid: edddc3bb796a4794db4d7429bb383529, type: 3}
+  heroType: {fileID: 5303237454669869504, guid: edddc3bb796a4794db4d7429bb383529, type: 3}
+  spriteType: {fileID: 21300000, guid: d07821b262822074aa7a72e0a97cefbd, type: 3}
   knob: {fileID: 1831442551}
 --- !u!1 &1210263701
 GameObject:
@@ -9619,7 +9621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67d1be8db091e7479af0c6fdef536cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 2119492865323461644, guid: 94a6dff74d816db429a779ffb573d000, type: 3}
+  heroType: {fileID: 2119492865323461644, guid: 94a6dff74d816db429a779ffb573d000, type: 3}
+  spriteType: {fileID: 21300000, guid: 04c760c11c2053f419d0eda7b0e713eb, type: 3}
   knob: {fileID: 1831442551}
 --- !u!1 &1825205582
 GameObject:

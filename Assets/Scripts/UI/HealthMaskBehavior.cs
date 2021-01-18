@@ -23,9 +23,9 @@ public class HealthMaskBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-/*        health_Current = heroStats.health;
-        var healthProp = health_Current / health_Max;
-        
-        transform.position = heaalthBarPos - new Vector3((1 - healthProp) * 7.5f, 0, 0);
-*/    }
+		health_Current = heroStats.health;
+		var healthProp = health_Current / health_Max;
+
+		transform.position = heaalthBarPos - new Vector3((1 - healthProp) * 7.5f, 0, 0);
+	}
 }
