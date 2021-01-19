@@ -18,13 +18,18 @@ public class CardSilanceBehaviour : MonoBehaviour
 		
     }
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerStay2D(Collider2D collision)
 	{
-        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name && SelectionManager.allowCasting)
+        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name)
         {
-            collision.GetComponent<CardInfluenceBehaviour>().beingAffectedBySilance = true;
-            SelectionManager.allowCasting = false;
-            GameObject.Destroy(gameObject);
+            //Debug.Log(true);
+            if (Input.GetMouseButtonDown(0))
+            {
+                //Debug.Log(false);
+                collision.GetComponent<CardInfluenceBehaviour>().beingAffectedBySilance = true;
+                SelectionManager.beingSelected = false;
+                GameObject.Destroy(gameObject);
+            }         
         }
     }
 }

@@ -15,15 +15,21 @@ public class RoyalKnightSkill : MonoBehaviour
 
 	public bool attackSignal = false;
 
-	public bool allowQ;
+	public bool allowQ = true;
+	private bool lockQ = false;
 	private float startTimeQ;
 
-	public bool allowW;
+	public bool allowW = true;
+	private bool lockW = false;
 	private float startTimeW;
 
-	public bool allowE;
-	public bool lockE;
+	public bool allowE = true;
+	private bool lockE = false;
+	private bool lockE2 = false;
 	private float startTimeE;
+
+	private float silanceStartTime;
+	private bool lockSilance = true;
 
 	void Start()
 	{
@@ -43,15 +49,24 @@ public class RoyalKnightSkill : MonoBehaviour
 	void CardEffect()
 	{
 		// Silance
-		if (CardInfluenceBehaviour.beingAffectedBySilance)
+		if (CardInfluenceBehaviour.beingAffectedBySilance && lockSilance)
 		{
-			allowQ = allowE = allowW = false; //Todo
+			silanceStartTime = Time.time;
+			allowQ = allowE = allowW = false;
+			lockSilance = false;			
+		}
+		else if (Time.time - silanceStartTime >= 5 && !lockSilance)
+		{
+			allowQ = allowE = allowW = true;
+			CardInfluenceBehaviour.beingAffectedBySilance = false;
+			lockSilance = true;
 		}
 	}
 
 	// The method used to cast spells
 	void Cast_Spell()
 	{
+		// Skill Q
 		if (Input.GetKeyDown(KeyCode.Q) && allowQ)
 		{
 			gameObject.GetComponent<Stats>().magicResist = 100;
@@ -61,8 +76,22 @@ public class RoyalKnightSkill : MonoBehaviour
 			AudioSource_Royal.Play();
 
 			allowQ = false;
+			lockQ = true;
 			startTimeQ = Time.time;
 		}
+		else if (lockQ && Time.time - startTimeQ >= 5)
+		{
+			allowQ = true;
+			lockQ = false;
+		}
+		else if (lockQ && Time.time - startTimeQ >= 1)
+		{
+			gameObject.GetComponent<Stats>().magicResist = 10;
+			gameObject.GetComponent<Stats>().armor = 20;
+			gameObject.transform.GetChild(4).gameObject.SetActive(false);
+		}
+
+		// Skill W
 		if (Input.GetKeyDown(KeyCode.W) && allowW)
 		{
 			gameObject.transform.position += new Vector3(5, 0, 0);
@@ -70,8 +99,16 @@ public class RoyalKnightSkill : MonoBehaviour
 			AudioSource_Royal.Play();
 
 			allowW = false;
+			lockW = true;
 			startTimeW = Time.time;
 		}
+		else if (lockW && Time.time - startTimeW >= 10)
+		{
+			allowW = true;
+			lockW = false;
+		}
+
+		// Skill E
 		if (Input.GetKeyDown(KeyCode.E) && allowE)
 		{
 			gameObject.GetComponent<Stats>().health += 200;
@@ -82,39 +119,21 @@ public class RoyalKnightSkill : MonoBehaviour
 
 			allowE = false;
 			lockE = true;
+			lockE2 = true;
 			startTimeE = Time.time;
 		}
-
-		// Controlling the freeze time for Q
-		if (allowQ == false && Time.time - startTimeQ >= 5)
-		{
-			allowQ = true;
-		}
-		else if (allowQ == false && Time.time - startTimeQ >= 1)
-		{
-			gameObject.GetComponent<Stats>().magicResist = 10;
-			gameObject.GetComponent<Stats>().armor = 20;
-			gameObject.transform.GetChild(4).gameObject.SetActive(false);
-		}
-
-		// Controlling the freeze time for W
-		if (allowW == false && Time.time - startTimeW >= 10)
-		{
-			allowW = true;
-		}
-
-		// Controlling the freeze time for E
-		if (allowE == false && Time.time - startTimeE >= 5 && lockE)
+		else if (lockE && lockE2 && Time.time - startTimeE >= 5)
 		{
 			gameObject.GetComponent<Stats>().health -= 200;
 			gameObject.GetComponent<Stats>().damage -= 200;
 			SpriteRenderer_Royal.color = Color.white;
 
-			lockE = false;
+			lockE2 = false;
 		}
-		else if (allowE == false && Time.time - startTimeE >= 30)
+		else if (lockE && Time.time - startTimeE >= 30)
 		{
 			allowE = true;
+			lockE = false;
 		}
 	}
 

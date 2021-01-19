@@ -6,7 +6,7 @@ public class SelectionManager : MonoBehaviour
 {
     public Material highlightMaterial;
     public bool beingSelected = false;
-    public bool allowCasting = false;
+    //public bool allowCasting = false;
     public string cardName;
     public RaycastHit2D card_Hit;
 
@@ -23,12 +23,6 @@ public class SelectionManager : MonoBehaviour
 		if (beingSelected)
 		{
             card_Hit.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-			if (Input.GetMouseButtonDown(0))
-			{
-                allowCasting = true;
-                beingSelected = false;
-            }
         }
 
         // Select a card, and use it on map
@@ -49,8 +43,7 @@ public class SelectionManager : MonoBehaviour
 
         // Deselect a card
 		if (Input.GetMouseButtonDown(1))
-		{
-            
+		{ 
 			if (beingSelected)
 			{
                 beingSelected = false;
