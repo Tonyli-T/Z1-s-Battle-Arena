@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DecideHero : MonoBehaviour
+public class HeroManager : MonoBehaviour
 {
     public GameObject heroType;
 	public Sprite spriteType;
