@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 5232788146096998777}
   m_Layer: 0
   m_Name: Royal Knight
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,7 +427,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5303237454669869504}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -474,7 +474,7 @@ MonoBehaviour:
   - {fileID: 1263470948}
   - {fileID: 1330760154}
   m_Bounds:
-    m_Center: {x: 0.3896172, y: -0.2726295, z: 0}
+    m_Center: {x: 0.38961744, y: -0.2726295, z: 0}
     m_Extent: {x: 1.5645208, y: 2.0188944, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1

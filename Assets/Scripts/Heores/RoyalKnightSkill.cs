@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoyalKnightSkill : MonoBehaviour
 {
+	private CardInfluenceBehaviour CardInfluenceBehaviour;
 	private Animator Animator_Royal;
 	private AudioSource AudioSource_Royal;
 	private SpriteRenderer SpriteRenderer_Royal;
@@ -29,14 +30,25 @@ public class RoyalKnightSkill : MonoBehaviour
 		Animator_Royal = GetComponent<Animator>();
 		AudioSource_Royal = GetComponent<AudioSource>();
 		SpriteRenderer_Royal = GetComponent<SpriteRenderer>();
+		CardInfluenceBehaviour = GetComponent<CardInfluenceBehaviour>();
 	}
 	
 	void Update()
 	{
+		CardEffect();
 		Attack();
 		Cast_Spell();
 	}
 	
+	void CardEffect()
+	{
+		// Silance
+		if (CardInfluenceBehaviour.beingAffectedBySilance)
+		{
+			allowQ = allowE = allowW = false; //Todo
+		}
+	}
+
 	// The method used to cast spells
 	void Cast_Spell()
 	{

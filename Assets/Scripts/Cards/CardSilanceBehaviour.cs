@@ -15,9 +15,16 @@ public class CardSilanceBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (SelectionManager.beingSelected && SelectionManager.name == transform.name)
-		{
-            Debug.Log(true);
-		}
+		
+    }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name && SelectionManager.allowCasting)
+        {
+            collision.GetComponent<CardInfluenceBehaviour>().beingAffectedBySilance = true;
+            SelectionManager.allowCasting = false;
+            GameObject.Destroy(gameObject);
+        }
     }
 }
