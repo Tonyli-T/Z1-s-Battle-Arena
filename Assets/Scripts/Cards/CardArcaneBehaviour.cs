@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardSilanceBehaviour : MonoBehaviour
+public class CardArcaneBehaviour : MonoBehaviour
 {
     private SelectionManager SelectionManager;
 
@@ -22,9 +22,11 @@ public class CardSilanceBehaviour : MonoBehaviour
 	{
         if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name && collision.CompareTag("Enemy"))
         {
+            //Debug.Log(true);
             if (Input.GetMouseButtonDown(0))
             {
-                collision.GetComponent<CardInfluenceBehaviour>().beingAffectedBySilance = true;
+                //Debug.Log(false);
+                collision.GetComponent<CardInfluenceBehaviour>().beingAffectedByArcane = true;
                 SelectionManager.beingSelected = false;
                 GameObject.Destroy(gameObject);
             }         

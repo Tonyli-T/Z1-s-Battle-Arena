@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardSilanceBehaviour : MonoBehaviour
+public class CardHasteBehaviour : MonoBehaviour
 {
     private SelectionManager SelectionManager;
 
@@ -20,11 +20,13 @@ public class CardSilanceBehaviour : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name && collision.CompareTag("Enemy"))
+        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name)
         {
+            //Debug.Log(true);
             if (Input.GetMouseButtonDown(0))
             {
-                collision.GetComponent<CardInfluenceBehaviour>().beingAffectedBySilance = true;
+                //Debug.Log(false);
+                collision.GetComponent<CardInfluenceBehaviour>().beingAffectedByHaste = true;
                 SelectionManager.beingSelected = false;
                 GameObject.Destroy(gameObject);
             }         

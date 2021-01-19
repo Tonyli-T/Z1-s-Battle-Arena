@@ -61,6 +61,15 @@ public class RoyalKnightSkill : MonoBehaviour
 			CardInfluenceBehaviour.beingAffectedBySilance = false;
 			lockSilance = true;
 		}
+
+		// Arcane
+		if (CardInfluenceBehaviour.beingAffectedByArcane)
+		{
+			startTimeQ -= 5;
+			startTimeW -= 5;
+			startTimeE -= 5;
+			CardInfluenceBehaviour.beingAffectedByArcane = false;
+		}
 	}
 
 	// The method used to cast spells

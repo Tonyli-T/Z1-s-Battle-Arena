@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardSilanceBehaviour : MonoBehaviour
+public class CardReinforceBehaviour : MonoBehaviour
 {
+    public GameObject archer;
     private SelectionManager SelectionManager;
 
     // Start is called before the first frame update
@@ -15,19 +16,14 @@ public class CardSilanceBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		
-    }
-
-	private void OnTriggerStay2D(Collider2D collision)
-	{
-        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name && collision.CompareTag("Enemy"))
+        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                collision.GetComponent<CardInfluenceBehaviour>().beingAffectedBySilance = true;
+                Instantiate(archer, transform.position, transform.rotation);
                 SelectionManager.beingSelected = false;
                 GameObject.Destroy(gameObject);
-            }         
+            }
         }
     }
 }
