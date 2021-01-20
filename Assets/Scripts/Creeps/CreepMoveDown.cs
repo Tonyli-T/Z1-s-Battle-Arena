@@ -3,9 +3,12 @@
 public class CreepMoveDown : MonoBehaviour
 {
 	private GameObject enemyBase;
+
 	private AudioSource creep_AudioSource;
 	private Animator creepAnimator;
 	private Rigidbody2D rb2D;
+
+	private string selfFaction;
 	public float speed = 5;
 	public float damage = 5;
 	public bool phase1 = true;
@@ -18,13 +21,15 @@ public class CreepMoveDown : MonoBehaviour
 		creep_AudioSource = GetComponent<AudioSource>();
 		creep_AudioSource.mute = true;
 
-		if (gameObject.CompareTag("太阳圣殿"))
+		selfFaction = GetComponent<ObjectInfoBehaviour>().faction;
+
+		if (selfFaction == "Team Red")
 		{
-			enemyBase = GameObject.Find("奥姆真理");
+			enemyBase = GameObject.Find("Team Blue Base");
 		}
-		else if (gameObject.CompareTag("奥姆真理"))
+		else if (selfFaction == "Team Blue")
 		{
-			enemyBase = GameObject.Find("太阳圣殿");
+			enemyBase = GameObject.Find("Team Red Base");
 		}
 	}
 
@@ -61,23 +66,17 @@ public class CreepMoveDown : MonoBehaviour
 	{
 		rb2D.velocity = new Vector2(0, 0);
 
-		if (gameObject.CompareTag("太阳圣殿"))
+		if (selfFaction == "Team Red" && collision.GetComponent<ObjectInfoBehaviour>().faction == "Team Blue")
 		{
-			if (collision.CompareTag("奥姆真理"))
-			{
-				collision.GetComponent<Stats>().health -= damage * Time.deltaTime;
-				creepAnimator.SetBool("IsAttacking", true);
-				creep_AudioSource.mute = false;
-			}
+			collision.GetComponent<Stats>().health -= damage * Time.deltaTime;
+			creepAnimator.SetBool("IsAttacking", true);
+			creep_AudioSource.mute = false;	
 		}
-		else if (gameObject.CompareTag("奥姆真理"))
+		else if (selfFaction == "Team Blue" && collision.GetComponent<ObjectInfoBehaviour>().faction == "Team Red")
 		{
-			if (collision.CompareTag("太阳圣殿"))
-			{
-				collision.GetComponent<Stats>().health -= damage * Time.deltaTime;
-				creepAnimator.SetBool("IsAttacking", true);
-				creep_AudioSource.mute = false;
-			}
+			collision.GetComponent<Stats>().health -= damage * Time.deltaTime;
+			creepAnimator.SetBool("IsAttacking", true);
+			creep_AudioSource.mute = false;
 		}
 	}
 

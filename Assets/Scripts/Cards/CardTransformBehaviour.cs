@@ -5,6 +5,7 @@ using UnityEngine;
 public class CardTransformBehaviour : MonoBehaviour
 {
     private SelectionManager SelectionManager;
+    public string team = "Team Red";
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +21,11 @@ public class CardTransformBehaviour : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name)
+        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name
+            && collision.GetComponent<ObjectInfoBehaviour>().type == "Creep")
         {
-            //Debug.Log(true);
             if (Input.GetMouseButtonDown(0))
             {
-                //Debug.Log(false);
                 collision.GetComponent<CardInfluenceBehaviour>().beingAffectedByTransform = true;
                 SelectionManager.beingSelected = false;
                 GameObject.Destroy(gameObject);
