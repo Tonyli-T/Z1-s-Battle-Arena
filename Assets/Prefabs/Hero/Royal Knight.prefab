@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a07b17145ce6da42a415220751c2abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 10
+  velocity: 20
   xAxis: 0
   yAxis: 0
 --- !u!60 &1933012214
@@ -489,7 +489,7 @@ MonoBehaviour:
   - {fileID: 1263470948}
   - {fileID: 1330760154}
   m_Bounds:
-    m_Center: {x: 0.3896172, y: -0.2726295, z: 0}
+    m_Center: {x: 0.38961744, y: -0.2726295, z: 0}
     m_Extent: {x: 1.5645208, y: 2.0188944, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1

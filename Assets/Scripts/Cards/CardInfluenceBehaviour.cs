@@ -26,5 +26,21 @@ public class CardInfluenceBehaviour : MonoBehaviour
 
 			beingAffectedByTransform = false;
 		}
+
+		// Poison effects to heroes
+		if (beingAffectedByPoision)
+		{
+			GetComponent<Move>().velocity -= 10;
+			GetComponent<Stats>().health -= 15;
+			beingAffectedByPoision = false;
+		}
+
+		// Haste effects to heroes
+		if (beingAffectedByHaste)
+		{
+			GetComponent<Move>().velocity += 10;
+			GetComponent<Collider2D>().enabled = false;
+			beingAffectedByHaste = false;
+		}
 	}
 }

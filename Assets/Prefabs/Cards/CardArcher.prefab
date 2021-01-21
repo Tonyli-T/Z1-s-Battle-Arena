@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8363059160889981035}
   - component: {fileID: 8363059160889981034}
+  - component: {fileID: 4472970807642575795}
   m_Layer: 0
   m_Name: CardArcher
   m_TagString: Untagged
@@ -82,3 +83,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4472970807642575795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363059160889981033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96349e425b6d1d4dadc26333763b6b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 
+  type: 

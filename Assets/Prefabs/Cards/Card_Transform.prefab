@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef4383aa73dc7d40aecab55f26dd5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: Team Red
