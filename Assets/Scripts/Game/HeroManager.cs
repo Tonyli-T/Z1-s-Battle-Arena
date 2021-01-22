@@ -14,5 +14,6 @@ public class HeroManager : MonoBehaviour
 	public Transform spawnPosRed;*/
 
 	public static GameObject playerControledHero;
+	public Sprite[] heroUISprites;
 	//public static Sprite playerHeroSprite;
 }

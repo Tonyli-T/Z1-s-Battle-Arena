@@ -19,6 +19,7 @@ public class Test : MonoBehaviour
     void Update()
     {
         //Button b;
+        //Sprite.
     }
 
 	private void OnMouseDown()

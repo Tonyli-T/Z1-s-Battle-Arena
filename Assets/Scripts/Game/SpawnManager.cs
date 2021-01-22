@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public static GameObject spawnedPlayerHero;
+
     public GameObject creepBlue;
     public GameObject creepRed;
 
@@ -12,17 +14,20 @@ public class SpawnManager : MonoBehaviour
 
     private Vector2 spawnPos = new Vector2(0, 1);
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+        // Spawn hero
+        spawnedPlayerHero = Instantiate(HeroManager.playerControledHero);
+    }
+
+	// Start is called before the first frame update
+	void Start()
     {
         BlueBase = GameObject.Find("Team Blue Base").transform;
         RedBase = GameObject.Find("Team Red Base").transform;
 
-        // Spawn hero
-        Instantiate(HeroManager.playerControledHero);
-
-        InvokeRepeating("SpawnBlue", 1, 5);
-        InvokeRepeating("SpawnRed", 1, 5);
+        //InvokeRepeating("SpawnBlue", 1, 5);
+        //InvokeRepeating("SpawnRed", 1, 5);
     }
 
     // To spawn creeps
