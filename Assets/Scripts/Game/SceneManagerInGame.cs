@@ -40,7 +40,7 @@ public class SceneManagerInGame : MonoBehaviour
         HeroManager = GameObject.Find("Hero Manager").GetComponent<HeroManager>();
         HeroManager.playerControledHero = (GameObject)hero;
 
-        DontDestroyOnLoad(Instantiate(hero, GameObject.Find("Spawn Pos Blue").transform));
+        //DontDestroyOnLoad(Instantiate(hero, GameObject.Find("Spawn Pos Blue").transform));
         SceneManager.LoadScene(0);
     }
 
