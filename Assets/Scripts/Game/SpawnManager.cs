@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public static GameObject spawnedPlayerHero;
+    public static GameObject spawnedEnemyHero;
 
     public GameObject creepBlue;
     public GameObject creepRed;
@@ -18,6 +19,7 @@ public class SpawnManager : MonoBehaviour
 	{
         // Spawn hero
         spawnedPlayerHero = Instantiate(HeroManager.playerControledHero);
+        spawnedPlayerHero = Instantiate(HeroManager.OpponentControledHero);
     }
 
 	// Start is called before the first frame update

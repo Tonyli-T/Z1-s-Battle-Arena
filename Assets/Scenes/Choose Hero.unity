@@ -519,6 +519,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67d1be8db091e7479af0c6fdef536cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heroUISprites:
+  - {fileID: 0}
+  heroes:
+  - {fileID: 5303237454669869504, guid: 16c8e18687d848a4e8c4cab9fcc6b871, type: 3}
 --- !u!4 &401486551
 Transform:
   m_ObjectHideFlags: 0

@@ -5,15 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class HeroManager : MonoBehaviour
 {
-    /*public GameObject heroTypeBlue;
-	public Sprite spriteTypeBlue;
-	public Transform spawnPosBlue;
-
-	public GameObject heroTypeRed;
-	public Sprite spriteTypeRed;
-	public Transform spawnPosRed;*/
-
 	public static GameObject playerControledHero;
+	public static GameObject OpponentControledHero;
+
 	public Sprite[] heroUISprites;
-	//public static Sprite playerHeroSprite;
+	public GameObject[] heroes;
 }
