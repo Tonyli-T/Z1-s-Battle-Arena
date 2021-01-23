@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
 	{
         // Spawn hero
         spawnedPlayerHero = Instantiate(HeroManager.playerControledHero);
-        spawnedPlayerHero = Instantiate(HeroManager.OpponentControledHero);
+        spawnedEnemyHero = Instantiate(HeroManager.OpponentControledHero);
     }
 
 	// Start is called before the first frame update
