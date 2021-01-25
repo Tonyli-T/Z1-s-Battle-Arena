@@ -45,8 +45,9 @@ public class SelectionManager : MonoBehaviour
 		if (Input.GetMouseButtonDown(1))
 		{ 
 			if (beingSelected)
-			{
+            {
                 beingSelected = false;
+                GameObject.Destroy(card_Hit.transform.gameObject);
 			}
 		}
     }

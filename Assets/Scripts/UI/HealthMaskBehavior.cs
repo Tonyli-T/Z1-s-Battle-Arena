@@ -25,11 +25,11 @@ public class HealthMaskBehavior : MonoBehaviour
 		{
 			if (heroFaction == "Blue")
 			{
-				Stats = SpawnManager.spawnedPlayerHero.GetComponent<Stats>();
+				Stats = CreatureManager.spawnedPlayerHero.GetComponent<Stats>();
 			}
 			else if (heroFaction == "Red")
 			{
-				Stats = SpawnManager.spawnedEnemyHero.GetComponent<Stats>();
+				Stats = CreatureManager.spawnedEnemyHero.GetComponent<Stats>();
 			}
 		}
 		else if (whatKind == "BaseHealthMask")

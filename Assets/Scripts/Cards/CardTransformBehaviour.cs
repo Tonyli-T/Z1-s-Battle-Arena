@@ -22,14 +22,11 @@ public class CardTransformBehaviour : MonoBehaviour
 	private void OnTriggerStay2D(Collider2D collision)
 	{
         if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name
-            && collision.GetComponent<ObjectInfoBehaviour>().type == "Creep")
+            && collision.GetComponent<ObjectInfoBehaviour>().type == "Creep" && Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                collision.GetComponent<CardInfluenceBehaviour>().beingAffectedByTransform = true;
-                SelectionManager.beingSelected = false;
-                GameObject.Destroy(gameObject);
-            }         
+            collision.GetComponent<CardInfluenceBehaviour>().beingAffectedByTransform = true;
+            SelectionManager.beingSelected = false;
+            GameObject.Destroy(gameObject);
         }
     }
 }

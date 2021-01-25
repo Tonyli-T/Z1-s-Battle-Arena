@@ -16,14 +16,11 @@ public class CardReinforceBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name)
+        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name && Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Instantiate(archer, transform.position, transform.rotation);
-                SelectionManager.beingSelected = false;
-                GameObject.Destroy(gameObject);
-            }
+            Instantiate(archer, transform.position, transform.rotation);
+            SelectionManager.beingSelected = false;
+            GameObject.Destroy(gameObject);
         }
     }
 }
