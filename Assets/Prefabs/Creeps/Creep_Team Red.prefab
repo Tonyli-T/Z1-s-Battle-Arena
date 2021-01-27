@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 172779299087155183}
   - component: {fileID: 3233024626150876033}
   - component: {fileID: 9055297503366266271}
+  - component: {fileID: -1427261381142852729}
   m_Layer: 0
   m_Name: Creep_Team Red
   m_TagString: Untagged
@@ -241,7 +242,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2277697000628871188}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -672,6 +673,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &-1427261381142852729
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2277697000628871188}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.295
 --- !u!1 &3773308183437923508
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class AttackMeleeBehaviour : MonoBehaviour
 		Rigidbody2D = GetComponent<Rigidbody2D>();
 		AudioSource = GetComponent<AudioSource>();
 		Animator = GetComponent<Animator>();
-
+		
 		type = GetComponent<ObjectInfoBehaviour>().type;
 		AudioSource.mute = true;
 	}

@@ -11,22 +11,22 @@ public class SceneManagerInGame : MonoBehaviour
 
     public void ChangeSceneMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void ChangeSceneAboutTheAuthor()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void ChangeSceneSoloOrOnline()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
     public void ChangeSceneChooseHero()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
     }
 
     public void QuitGame()
@@ -42,12 +42,12 @@ public class SceneManagerInGame : MonoBehaviour
         HeroManager.playerControledHero = (GameObject)hero;
         HeroManager.OpponentControledHero = HeroManager.heroes[Random.Range(0, HeroManager.heroes.Length)];
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
 
     public void ChangeToMainScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
 
     private void Update()
