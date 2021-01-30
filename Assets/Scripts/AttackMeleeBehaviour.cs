@@ -23,23 +23,21 @@ public class AttackMeleeBehaviour : MonoBehaviour
 
 	private void OnCollisionStay2D(Collision2D collision)
 	{
-		var damage = GetComponent<Stats>().damage;
 		var selfFaction = GetComponent<ObjectInfoBehaviour>().faction;
+		var collisionObjectInfo = collision.gameObject.GetComponent<ObjectInfoBehaviour>();
 
-		var collisionStats = collision.collider.GetComponent<Stats>();
-		var collisionFaction = collision.collider.GetComponent<ObjectInfoBehaviour>().faction;
-
-		Rigidbody2D.velocity = new Vector2(0, 0);
-
-		if ((selfFaction == "Team Red" && collisionFaction == "Team Blue") || (selfFaction == "Team Blue" && collisionFaction == "Team Red"))
+		if (collisionObjectInfo != null
+			&& ((selfFaction == "Team Red" && collisionObjectInfo.faction == "Team Blue") || (selfFaction == "Team Blue" && collisionObjectInfo.faction == "Team Red"))
+			&& ((type == "Hero" && Input.GetKeyDown(KeyCode.A)) || (type == "Creep")))
 		{
-			Debug.Log(true);
-			if ((type == "Hero" && Input.GetKeyDown(KeyCode.A)) || (type == "Creep"))
-			{
-				collisionStats.health -= damage * Time.deltaTime;
-				Animator.SetBool("IsAttacking", true);
-				AudioSource.mute = false;
-			}
+			Rigidbody2D.velocity = new Vector2(0, 0);
+
+			var damage = GetComponent<Stats>().damage;
+			var collisionStats = collision.gameObject.GetComponent<Stats>();
+
+			collisionStats.health -= damage * Time.deltaTime;
+			Animator.SetBool("IsAttacking", true);
+			AudioSource.mute = false;
 		}
 	}
 
@@ -48,4 +46,9 @@ public class AttackMeleeBehaviour : MonoBehaviour
 		Animator.SetBool("IsAttacking", false);
 		AudioSource.mute = true;
 	}
+
+/*	private void OnTriggerStay2D(Collider2D collision)
+	{
+		Debug.Log(true);
+	}*/
 }

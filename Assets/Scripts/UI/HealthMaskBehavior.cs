@@ -82,26 +82,4 @@ public class HealthMaskBehavior : MonoBehaviour
 			}
 		}		
 	}
-
-	/*private void HeroHealthMaskChange()
-	{
-		health_Current = heroStats.health;
-		var healthProp = health_Current / health_Max;
-
-		if (healthProp <= 0.3)
-		{
-			//Debug.Log(healthProp % 2);
-			if ((healthProp * 10) % 2 >= 1)
-			{
-				blood.GetComponent<SpriteRenderer>().color = Color.white;
-
-			}
-			else
-			{
-				blood.GetComponent<SpriteRenderer>().color = Color.red;
-			}
-		}
-
-		transform.position = startPos + new Vector3((1 - healthProp) * 6.5f, 0, 0);
-	}*/
 }

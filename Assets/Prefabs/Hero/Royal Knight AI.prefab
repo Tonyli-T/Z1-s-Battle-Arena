@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 1933012213}
   - component: {fileID: 5232788146096998777}
   - component: {fileID: 936256523}
+  - component: {fileID: 2261652028608060422}
   m_Layer: 0
   m_Name: Royal Knight AI
   m_TagString: Untagged
@@ -309,7 +310,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5303237454669869504}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -589,6 +590,22 @@ MonoBehaviour:
   beingAffectedByTransform: 0
   beingAffectedByPoision: 0
   beingAffectedByHaste: 0
+--- !u!58 &2261652028608060422
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5303237454669869504}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.929493, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.2439744
 --- !u!1 &6440890128767521302
 GameObject:
   m_ObjectHideFlags: 0

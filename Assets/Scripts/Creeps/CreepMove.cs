@@ -72,5 +72,7 @@ public class CreepMove : MonoBehaviour
 				rb2D.AddForce(moveTowards.normalized * speed, ForceMode2D.Force);
 			}
 		}
+
+		//TODO. Maybe stop creeps when they approach the base
 	}
 }

@@ -17,17 +17,17 @@ public class CreatureManager : MonoBehaviour
 
     private void Awake()
     {
+        BlueBase = GameObject.Find("Team Blue Base").transform;
+        RedBase = GameObject.Find("Team Red Base").transform;
+
         // Spawn hero
-        spawnedPlayerHero = Instantiate(HeroManager.playerControledHero);
-        spawnedEnemyHero = Instantiate(HeroManager.OpponentControledHero);
+        spawnedPlayerHero = Instantiate(HeroManager.playerControledHero, BlueBase.transform.position, BlueBase.transform.rotation);
+        spawnedEnemyHero = Instantiate(HeroManager.OpponentControledHero, RedBase.transform.position, RedBase.transform.rotation);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        BlueBase = GameObject.Find("Team Blue Base").transform;
-        RedBase = GameObject.Find("Team Red Base").transform;
-
 		InvokeRepeating("SpawnBlue", 0, 5);
 		InvokeRepeating("SpawnRed", 0, 5);
 	}
