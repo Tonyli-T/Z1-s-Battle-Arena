@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardArcaneBehaviour : MonoBehaviour
+public class CardArcaneBehaviour : BaseCardBehaviour
 {
     private SelectionManager SelectionManager;
 
@@ -10,26 +10,19 @@ public class CardArcaneBehaviour : MonoBehaviour
     void Start()
     {
         SelectionManager = GameObject.Find("Selection Manager").GetComponent<SelectionManager>();
+        StartCoroutine(MoveCards(gameObject, GameObject.Find("Card Destroy Pos").transform));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-		
-    }
-
-	private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
 	{
-        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name && collision.CompareTag("Enemy"))
+        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name 
+            && collision.GetComponent<ObjectInfoBehaviour>().faction == "Team Blue"
+            && collision.GetComponent<ObjectInfoBehaviour>().type == "Hero"
+            && Input.GetMouseButtonDown(0))
         {
-            //Debug.Log(true);
-            if (Input.GetMouseButtonDown(0))
-            {
-                //Debug.Log(false);
-                collision.GetComponent<CardInfluenceBehaviour>().beingAffectedByArcane = true;
-                SelectionManager.beingSelected = false;
-                GameObject.Destroy(gameObject);
-            }         
+            collision.GetComponent<CardInfluenceBehaviour>().beingAffectedByArcane = true;
+            SelectionManager.beingSelected = false;
+            GameObject.Destroy(gameObject);        
         }
     }
 }

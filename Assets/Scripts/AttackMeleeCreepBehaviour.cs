@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackMeleeBehaviour : MonoBehaviour
+public class AttackMeleeCreepBehaviour : MonoBehaviour
 {
 	private AudioSource AudioSource;
 	private Animator Animator;
 	private Rigidbody2D Rigidbody2D;
-
-	private string type;
 
 	// Start is called before the first frame update
 	void Start()
@@ -17,7 +15,6 @@ public class AttackMeleeBehaviour : MonoBehaviour
 		AudioSource = GetComponent<AudioSource>();
 		Animator = GetComponent<Animator>();
 		
-		type = GetComponent<ObjectInfoBehaviour>().type;
 		AudioSource.mute = true;
 	}
 
@@ -26,9 +23,7 @@ public class AttackMeleeBehaviour : MonoBehaviour
 		var selfFaction = GetComponent<ObjectInfoBehaviour>().faction;
 		var collisionObjectInfo = collision.gameObject.GetComponent<ObjectInfoBehaviour>();
 
-		if (collisionObjectInfo != null
-			&& ((selfFaction == "Team Red" && collisionObjectInfo.faction == "Team Blue") || (selfFaction == "Team Blue" && collisionObjectInfo.faction == "Team Red"))
-			&& ((type == "Hero" && Input.GetKeyDown(KeyCode.A)) || (type == "Creep")))
+		if (collisionObjectInfo != null && selfFaction != collisionObjectInfo.faction)
 		{
 			Rigidbody2D.velocity = new Vector2(0, 0);
 
@@ -46,9 +41,4 @@ public class AttackMeleeBehaviour : MonoBehaviour
 		Animator.SetBool("IsAttacking", false);
 		AudioSource.mute = true;
 	}
-
-/*	private void OnTriggerStay2D(Collider2D collision)
-	{
-		Debug.Log(true);
-	}*/
 }

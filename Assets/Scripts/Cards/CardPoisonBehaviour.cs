@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardPoisonBehaviour : MonoBehaviour
+public class CardPoisonBehaviour : BaseCardBehaviour
 {
     private SelectionManager SelectionManager;
 
@@ -10,11 +10,13 @@ public class CardPoisonBehaviour : MonoBehaviour
     void Start()
     {
         SelectionManager = GameObject.Find("Selection Manager").GetComponent<SelectionManager>();
+        StartCoroutine(MoveCards(gameObject, GameObject.Find("Card Destroy Pos").transform));
     }
 
-	private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
 	{
-        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name 
+        if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name
+            && collision.GetComponent<ObjectInfoBehaviour>().type == "Team Red"
             && collision.GetComponent<ObjectInfoBehaviour>().type == "Hero"
             && Input.GetMouseButtonDown(0))
         {

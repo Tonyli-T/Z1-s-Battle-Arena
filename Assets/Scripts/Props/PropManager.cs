@@ -11,6 +11,7 @@ public class PropManager : MonoBehaviour
 
 	public float regenerateFrequency = 30;
 	public float cardsFrequency = 10;
+	public Coroutine c;
 
 	public float spawnRangeLeft = -10;
 	public float spawnRangeRight = 10;
@@ -45,18 +46,6 @@ public class PropManager : MonoBehaviour
 	// Generate Card on the wheel
 	private void GenerateCards()
 	{
-		var card = Instantiate(cards[Random.Range(0, cards.Length)], cardSpawnPos.position, cardSpawnPos.rotation);
-		StartCoroutine(MoveCards(card));
-	}
-
-	IEnumerator MoveCards(GameObject card)
-	{
-		while (card.transform.position.x <= cardDestroyPos.transform.position.x)
-		{
-			card.transform.position += new Vector3(1 * Time.deltaTime, 0, 0);
-			yield return null; 
-		}
-
-		GameObject.Destroy(card);
+		Instantiate(cards[Random.Range(0, cards.Length)], cardSpawnPos.position, cardSpawnPos.rotation);
 	}
 }

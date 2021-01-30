@@ -5,15 +5,12 @@ using UnityEngine;
 public class RoyalKnightSkill : MonoBehaviour
 {
 	private CardInfluenceBehaviour CardInfluenceBehaviour;
-	private Animator Animator_Royal;
 	private AudioSource AudioSource_Royal;
 	private SpriteRenderer SpriteRenderer_Royal;
 
 	public AudioClip AudioClip_SkillQ;
 	public AudioClip AudioClip_SkillW;
 	public AudioClip AudioClip_SkillE;
-
-	public bool attackSignal = false;
 
 	public bool allowQ = true;
 	private bool lockQ = false;
@@ -33,7 +30,6 @@ public class RoyalKnightSkill : MonoBehaviour
 
 	void Start()
 	{
-		Animator_Royal = GetComponent<Animator>();
 		AudioSource_Royal = GetComponent<AudioSource>();
 		SpriteRenderer_Royal = GetComponent<SpriteRenderer>();
 		CardInfluenceBehaviour = GetComponent<CardInfluenceBehaviour>();
@@ -42,7 +38,6 @@ public class RoyalKnightSkill : MonoBehaviour
 	void Update()
 	{
 		CardEffect();
-		Attack();
 		Cast_Spell();
 	}
 	
@@ -144,30 +139,5 @@ public class RoyalKnightSkill : MonoBehaviour
 			allowE = true;
 			lockE = false;
 		}
-	}
-
-	// Melle attack for Royal Knight
-	void Attack()
-	{
-		if (Input.GetKeyDown(KeyCode.A))
-		{
-			attackSignal = true;
-			Animator_Royal.SetBool("IsAttacking", true);
-		}
-		else
-		{
-			//Animator_Royal.SetBool("IsAttacking", false);
-		}
-	}
-
-	// Calculating damage
-	private void OnTriggerStay2D(Collider2D collision)
-	{
-	/*	if (attackSignal)
-		{*/
-			//collision.gameObject.GetComponent<Stats>().health -= gameObject.GetComponent<Stats>().damage;
-			//Debug.Log(true);
-			//attackSignal = false;
-		/*}*/
 	}
 }
