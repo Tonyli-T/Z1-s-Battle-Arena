@@ -5,10 +5,9 @@ public class CreepMove : MonoBehaviour
 	private GameObject enemyBase;
 
 	private AudioSource creep_AudioSource;
-	private Animator creepAnimator;
 	private Rigidbody2D rb2D;
 
-	public float speed = 5;
+	public float speed = 2;
 	public float damage = 5;
 	public bool phase1 = true;
 
@@ -20,7 +19,6 @@ public class CreepMove : MonoBehaviour
 	{
 		rb2D = GetComponent<Rigidbody2D>();
 		creep_AudioSource = GetComponent<AudioSource>();
-		creepAnimator = GetComponent<Animator>();
 		creep_AudioSource.mute = true;
 
 		selfFaction = GetComponent<ObjectInfoBehaviour>().faction;

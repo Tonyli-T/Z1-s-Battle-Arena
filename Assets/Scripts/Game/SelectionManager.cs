@@ -5,16 +5,11 @@ using UnityEngine;
 public class SelectionManager : MonoBehaviour
 {
     public Material highlightMaterial;
-    public bool beingSelected = false;
-    //public bool allowCasting = false;
-    public string cardName;
-    public RaycastHit2D card_Hit;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool beingSelected = false;
+    public string cardName;
+
+    public RaycastHit2D card_Hit;
 
     // Update is called once per frame
     void Update()

@@ -11,16 +11,21 @@ public class PropManager : MonoBehaviour
 
 	public float regenerateFrequency = 30;
 	public float cardsFrequency = 10;
-	public Coroutine c;
+	//public Coroutine c;
 
-	public float spawnRangeLeft = -10;
-	public float spawnRangeRight = 10;
-	public float spawnRangeUp= 0;
-	public float spawnRangeDown = -15;
+	private float spawnRangeLeft;
+	private float spawnRangeRight;
+	private float spawnRangeUp;
+	private float spawnRangeDown;
 
 	// Start is called before the first frame update
 	void Start()
 	{
+		spawnRangeLeft = GameObject.Find("Left up regenerate spawn pos").transform.position.x;
+		spawnRangeRight = GameObject.Find("Right down regenerate spawn pos").transform.position.x;
+		spawnRangeUp = GameObject.Find("Left up regenerate spawn pos").transform.position.y;
+		spawnRangeDown = GameObject.Find("Right down regenerate spawn pos").transform.position.y;
+
 		InvokeRepeating("GenerateRegenerationProp", 0, regenerateFrequency);
 		InvokeRepeating("GenerateCards", 0, cardsFrequency);
 	}
@@ -31,9 +36,8 @@ public class PropManager : MonoBehaviour
 		// Randomly generate a prop around traction points
 		var randomNumX = Random.Range(spawnRangeLeft, spawnRangeRight);
 		var randomNumY = Random.Range(spawnRangeDown, spawnRangeUp);
-		var x = GameObject.Find("Traction Point Up").transform.position.x + randomNumX;
-		var y = GameObject.Find("Traction Point Up").transform.position.y + randomNumY;
-		return (x, y);
+
+		return (randomNumX, randomNumY);
 	}
 
 	// Generate prop around the map

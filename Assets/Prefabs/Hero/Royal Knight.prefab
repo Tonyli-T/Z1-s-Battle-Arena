@@ -340,8 +340,8 @@ MonoBehaviour:
   - {fileID: 1263470948}
   - {fileID: 1330760154}
   m_Bounds:
-    m_Center: {x: 0.38961744, y: -0.27262974, z: 0}
-    m_Extent: {x: 1.5645206, y: 2.0188942, z: 0}
+    m_Center: {x: 0.38961744, y: -0.2726295, z: 0}
+    m_Extent: {x: 1.5645208, y: 2.0188944, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!82 &5232788146096998777
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5303237454669869504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c870ef02d09c9b5408453f3c46f6a728, type: 3}
+  m_Script: {fileID: 11500000, guid: 08fb2e8b66d9ffb4faf8cdb4c1b53c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 1

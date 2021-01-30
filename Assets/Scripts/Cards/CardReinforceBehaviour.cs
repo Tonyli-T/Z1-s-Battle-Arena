@@ -15,7 +15,7 @@ public class CardReinforceBehaviour : BaseCardBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log(SelectionManager.beingSelected);
         if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name && Input.GetMouseButtonDown(0))

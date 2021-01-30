@@ -10,18 +10,29 @@ public class CardInfluenceBehaviour : MonoBehaviour
     public bool beingAffectedByPoision = false;
     public bool beingAffectedByHaste = false;
 
+	private ObjectInfoBehaviour ObjectInfoBehaviour;
+
+	private void Start()
+	{
+		ObjectInfoBehaviour = GetComponent<ObjectInfoBehaviour>();
+	}
+
 	private void Update()
 	{
 		// Transform the faction of a regular creep
 		if (beingAffectedByTransform)
 		{
-			if (GetComponent<ObjectInfoBehaviour>().faction == "Team Red")
+			if (ObjectInfoBehaviour.faction == "Team Red")
 			{
-				GetComponent<ObjectInfoBehaviour>().faction = "Team Blue";
+				ObjectInfoBehaviour.faction = "Team Blue";
+				gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+				gameObject.GetComponent<CreepMove>().enabled = false;
 			}
 			else
 			{
-				GetComponent<ObjectInfoBehaviour>().faction = "Team Red";
+				ObjectInfoBehaviour.faction = "Team Red";
+				gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+				gameObject.GetComponent<CreepMove>().enabled = false;
 			}
 
 			beingAffectedByTransform = false;
@@ -39,7 +50,6 @@ public class CardInfluenceBehaviour : MonoBehaviour
 		if (beingAffectedByHaste)
 		{
 			GetComponent<Move>().velocity += 10;
-			GetComponent<Collider2D>().enabled = false;
 			beingAffectedByHaste = false;
 		}
 	}

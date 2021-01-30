@@ -16,7 +16,7 @@ public class CardPoisonBehaviour : BaseCardBehaviour
     private void OnTriggerStay2D(Collider2D collision)
 	{
         if (SelectionManager.beingSelected && SelectionManager.cardName == transform.name
-            && collision.GetComponent<ObjectInfoBehaviour>().type == "Team Red"
+            && collision.GetComponent<ObjectInfoBehaviour>().faction == "Team Red"
             && collision.GetComponent<ObjectInfoBehaviour>().type == "Hero"
             && Input.GetMouseButtonDown(0))
         {

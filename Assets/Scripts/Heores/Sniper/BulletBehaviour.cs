@@ -6,7 +6,7 @@ public class BulletBehaviour : MonoBehaviour
 {
     //public string tag;
     public float hitBackProbability = 0;
-    public Vector2 hitBackDistance = new Vector2(-5, 0);
+    public Vector2 hitBackDistance = new Vector2(5, 0);
     public float damage;
 
     public AudioClip hitSound;
@@ -18,15 +18,9 @@ public class BulletBehaviour : MonoBehaviour
         SoundPlayer = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.CompareTag("奥姆真理"))
+		if (collision.GetComponent<ObjectInfoBehaviour>() != null && collision.GetComponent<ObjectInfoBehaviour>().faction == "Team Red")
 		{
             if (Random.value <= hitBackProbability)
             {
