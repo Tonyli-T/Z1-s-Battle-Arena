@@ -8,6 +8,12 @@ public class SceneManagerInGame : MonoBehaviour
     private HeroManager HeroManager;
 
     private static bool isAtPauseMenu = false;
+    public static string whoWin;
+
+    public static void ChangeToEndScene()
+    {
+        SceneManager.LoadScene("End Scene");
+    }
 
     public void ChangeSceneMenu()
     {
@@ -54,7 +60,7 @@ public class SceneManagerInGame : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-            //Debug.Log(isAtPauseMenu);
+            //Todo:: Don't intterupt the game
 			if (isAtPauseMenu)
 			{
                 isAtPauseMenu = false;

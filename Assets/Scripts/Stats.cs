@@ -13,7 +13,18 @@ public class Stats : MonoBehaviour
 	{
 		if (health <= 0)
 		{
-			GameObject.Destroy(gameObject);
+			if (gameObject.name == "Team Blue Base")
+			{
+				SceneManagerInGame.whoWin = "Team Blue";
+				SceneManagerInGame.ChangeToEndScene();
+			}
+			else if (gameObject.name == "Team Red Base")
+			{
+				SceneManagerInGame.whoWin = "Team Red";
+				SceneManagerInGame.ChangeToEndScene();
+			}
+
+			Destroy(gameObject);
 		}
 	}
 }
