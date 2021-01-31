@@ -5,6 +5,8 @@ using UnityEngine;
 public class SniperSkill : MonoBehaviour
 {
 	public GameObject bullet;
+	public GameObject ult_Bullet;
+
 	private SpriteRenderer SpriteRenderer;
 	private GameObject currentBullet;
 	private AudioSource soundPlayer;
@@ -48,7 +50,9 @@ public class SniperSkill : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.E))
 		{
-			
+			currentBullet = Instantiate(ult_Bullet, transform.position, transform.rotation);
+			currentBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * Time.deltaTime * shootSpeed);
+			currentBullet.GetComponent<BulletBehaviour>().damage = GetComponent<Stats>().damage;
 		}
 
 		// Controlling the freeze time for Q
