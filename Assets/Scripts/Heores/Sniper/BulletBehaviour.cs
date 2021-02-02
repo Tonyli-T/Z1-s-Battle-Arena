@@ -38,6 +38,8 @@ public class BulletBehaviour : MonoBehaviour
             {
                 collision.GetComponent<Stats>().health -= damage;
             }
+
+            Destroy(gameObject);
         }
     }
 }

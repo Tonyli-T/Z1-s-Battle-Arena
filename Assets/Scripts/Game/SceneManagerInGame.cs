@@ -7,16 +7,20 @@ public class SceneManagerInGame : MonoBehaviour
 {
     private HeroManager HeroManager;
 
-    private static bool isAtPauseMenu = false;
+    //private static bool isAtPauseMenu = false;
+    public static bool allowPauseMenu = false;
+
     public static string whoWin;
 
     public static void ChangeToEndScene()
     {
+        allowPauseMenu = false;
         SceneManager.LoadScene("End Scene");
     }
 
     public void ChangeSceneMenu()
     {
+        allowPauseMenu = false;
         SceneManager.LoadScene(0);
     }
 
@@ -32,6 +36,7 @@ public class SceneManagerInGame : MonoBehaviour
 
     public void ChangeSceneChooseHero()
     {
+        allowPauseMenu = false;
         SceneManager.LoadScene(3);
     }
 
@@ -47,30 +52,29 @@ public class SceneManagerInGame : MonoBehaviour
 
         HeroManager.playerControledHero = (GameObject)hero;
         HeroManager.OpponentControledHero = HeroManager.heroes[Random.Range(0, HeroManager.heroes.Length)];
+        allowPauseMenu = true;
 
         SceneManager.LoadScene(4);
     }
 
     public void ChangeToMainScene()
     {
-        SceneManager.LoadScene(4);
+        allowPauseMenu = true;
+
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Pause Menu"));
     }
 
     private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (allowPauseMenu)
 		{
-            //Todo:: Don't intterupt the game
-			if (isAtPauseMenu)
-			{
-                isAtPauseMenu = false;
-                SceneManager.LoadScene("Game Scene");
-			}
-			else
-			{
-                isAtPauseMenu = true;
-                SceneManager.LoadScene("Pause Menu");
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                //Todo:: time scale
+                allowPauseMenu = false;
+                SceneManager.LoadScene("Pause Menu", LoadSceneMode.Additive);    
             }
+
         }
-	}
+    }
 }

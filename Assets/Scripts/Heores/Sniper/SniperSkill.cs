@@ -13,9 +13,14 @@ public class SniperSkill : MonoBehaviour
 	public AudioClip skill_Q;
 
 	public float shootSpeed = 5;
+
 	public bool allowQ = true;
 	public bool lockQ = false;
 	public float startTimeQ;
+
+	public bool allowE = true;
+	public bool lockE = false;
+	public float startTimeE;
 
 	void Start()
 	{
@@ -48,11 +53,13 @@ public class SniperSkill : MonoBehaviour
 			startTimeQ = Time.time;
 		}
 
-		if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetKeyDown(KeyCode.E) && allowE)
 		{
 			currentBullet = Instantiate(ult_Bullet, transform.position, transform.rotation);
 			currentBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * Time.deltaTime * shootSpeed);
-			currentBullet.GetComponent<BulletBehaviour>().damage = GetComponent<Stats>().damage;
+
+			startTimeE = Time.time;
+			allowE = false;
 		}
 
 		// Controlling the freeze time for Q
@@ -67,10 +74,15 @@ public class SniperSkill : MonoBehaviour
 			gameObject.GetComponent<Stats>().damage -= 50;
 			SpriteRenderer.color = new Color(1, 1, 1, 1);
 			lockQ = false;
-		}	
+		}
+
+		// Controlling the freeze time for E
+		if (!allowE && Time.time - startTimeE >= 10)
+		{
+			allowE = true;
+		}
 	}
 
-	// Melle attack for Royal Knight
 	void Attack()
 	{
 		if (Input.GetKeyDown(KeyCode.A))

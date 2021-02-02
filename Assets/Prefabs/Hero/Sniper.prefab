@@ -137,11 +137,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1086838212338209606, guid: bfe9f228330771c46a4b71e2ce6eb3f1, type: 3}
+  ult_Bullet: {fileID: 1086838212338209606, guid: e17c572d0ac48ce43b38408645de902a, type: 3}
   skill_Q: {fileID: 8300000, guid: 69fc8e8016826ec438edaa50586778ea, type: 3}
   shootSpeed: 100
   allowQ: 0
   lockQ: 0
   startTimeQ: 0
+  allowE: 1
+  lockE: 0
+  startTimeE: 0
 --- !u!114 &3289899542689970651
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 783598172635443996}
   - component: {fileID: 1536239535}
   - component: {fileID: 1536239536}
-  - component: {fileID: 3090386971371299736}
   - component: {fileID: 6442607845846458984}
+  - component: {fileID: -6790719509622442330}
   m_Layer: 0
   m_Name: Bullet Ult
   m_TagString: Untagged
@@ -123,22 +123,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &3090386971371299736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086838212338209606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60cacee48661de145a4467cd5a86b682, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitBackProbability: 0.5
-  hitBackDistance: {x: 5, y: 0}
-  damage: 0
-  hitSound: {fileID: 8300000, guid: 9a2c3a8de9b00d74abb86cb2c25a2b60, type: 3}
 --- !u!82 &6442607845846458984
 AudioSource:
   m_ObjectHideFlags: 0
@@ -235,3 +219,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6790719509622442330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086838212338209606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e270b44157847478023e5dae46d8d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
