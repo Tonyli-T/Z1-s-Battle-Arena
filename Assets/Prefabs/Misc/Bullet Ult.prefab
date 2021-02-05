@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1536239536}
   - component: {fileID: 6442607845846458984}
   - component: {fileID: -6790719509622442330}
+  - component: {fileID: 8283992891539409258}
   m_Layer: 0
   m_Name: Bullet Ult
   m_TagString: Untagged
@@ -231,3 +232,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e270b44157847478023e5dae46d8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8283992891539409258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086838212338209606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96349e425b6d1d4dadc26333763b6b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: Red
+  type: Bullet

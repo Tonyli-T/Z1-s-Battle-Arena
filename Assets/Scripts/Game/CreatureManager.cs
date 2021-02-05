@@ -13,7 +13,8 @@ public class CreatureManager : MonoBehaviour
     private Transform BlueBase;
     private Transform RedBase;
 
-    private Vector2 spawnPos = new Vector2(0, 2);
+    private Vector3 _creepSpawnPosX = new Vector3(3, 0, 0);
+    private Vector3 _creepSpawnPosY = new Vector3(0, 1, 0);
 
     private void Awake()
     {
@@ -21,30 +22,31 @@ public class CreatureManager : MonoBehaviour
         RedBase = GameObject.Find("Team Red Base").transform;
 
         // Spawn hero
-        spawnedPlayerHero = Instantiate(HeroManager.playerControledHero, BlueBase.transform.position, BlueBase.transform.rotation);
-        spawnedEnemyHero = Instantiate(HeroManager.OpponentControledHero, RedBase.transform.position, RedBase.transform.rotation);
+        var _diffToBase = new Vector3(2, 0, 0);
+        spawnedPlayerHero = Instantiate(HeroManager.playerControledHero, BlueBase.transform.position + _diffToBase, BlueBase.transform.rotation);
+        spawnedEnemyHero = Instantiate(HeroManager.OpponentControledHero, RedBase.transform.position - _diffToBase, RedBase.transform.rotation);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-		InvokeRepeating("SpawnBlue", 0, 5);
-		InvokeRepeating("SpawnRed", 0, 5);
+		InvokeRepeating("SpawnBlue", 0, 10);
+		InvokeRepeating("SpawnRed", 0, 10);
 	}
 
 	// To spawn creeps
 	private void SpawnBlue()
     {
-        Instantiate(creepBlue, (Vector2)BlueBase.position + spawnPos, BlueBase.rotation).AddComponent<CreepMove>().whichWay = "Up";
-        Instantiate(creepBlue, BlueBase.position, transform.rotation).AddComponent<CreepMove>().whichWay = "Mid";
-        Instantiate(creepBlue, (Vector2)BlueBase.position - spawnPos, BlueBase.rotation).AddComponent<CreepMove>().whichWay = "Down";
+        Instantiate(creepBlue, BlueBase.position + _creepSpawnPosX + _creepSpawnPosY, BlueBase.rotation).AddComponent<CreepMove>().whichWay = "Up";
+        Instantiate(creepBlue, BlueBase.position + _creepSpawnPosX, transform.rotation).AddComponent<CreepMove>().whichWay = "Mid";
+        Instantiate(creepBlue, BlueBase.position + _creepSpawnPosX - _creepSpawnPosY, BlueBase.rotation).AddComponent<CreepMove>().whichWay = "Down";
     }
 
     // To spawn creeps
     private void SpawnRed()
     {
-        Instantiate(creepRed, (Vector2)RedBase.position + spawnPos, RedBase.rotation).AddComponent<CreepMove>().whichWay = "Up";
-        Instantiate(creepRed, RedBase.position, RedBase.rotation).AddComponent<CreepMove>().whichWay = "Mid";
-        Instantiate(creepRed, (Vector2)RedBase.position - spawnPos, RedBase.rotation).AddComponent<CreepMove>().whichWay = "Down";
+        Instantiate(creepRed, RedBase.position - _creepSpawnPosX + _creepSpawnPosY, RedBase.rotation).AddComponent<CreepMove>().whichWay = "Up";
+        Instantiate(creepRed, RedBase.position - _creepSpawnPosX, RedBase.rotation).AddComponent<CreepMove>().whichWay = "Mid";
+        Instantiate(creepRed, RedBase.position - _creepSpawnPosX - _creepSpawnPosY, RedBase.rotation).AddComponent<CreepMove>().whichWay = "Down";
     }
 }

@@ -64,6 +64,16 @@ public class SceneManagerInGame : MonoBehaviour
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Pause Menu"));
     }
 
+    public void JumpToWechat()
+    {
+        Application.OpenURL("http://unity3d.com/");
+    }
+
+    public void JumpToInstagram()
+    {
+        Application.OpenURL("http://unity3d.com/");
+    }
+
     private void Update()
 	{
 		if (allowPauseMenu)
@@ -74,7 +84,6 @@ public class SceneManagerInGame : MonoBehaviour
                 allowPauseMenu = false;
                 SceneManager.LoadScene("Pause Menu", LoadSceneMode.Additive);    
             }
-
         }
     }
 }
