@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AIMove : MonoBehaviour
 {
-    private Transform _walkUpLimit;
-    private Transform _walkDownLimit;
+    private Vector3 _walkUpLimit;
+    private Vector3 _walkDownLimit;
 
     private Vector3 _direction;
     private Rigidbody2D _Rigidbody2D;
@@ -15,10 +15,11 @@ public class AIMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _walkUpLimit = GameObject.Find("AI_Walk_Route_Up").transform;
-        _walkDownLimit = GameObject.Find("AI_Walk_Route_Down").transform;
+        var diffPos = new Vector3(1.5f, 0, 0);
+        _walkUpLimit = GameObject.Find("AI_Walk_Route_Up").transform.position + diffPos;
+        _walkDownLimit = GameObject.Find("AI_Walk_Route_Down").transform.position + diffPos;
 
-        _direction = _walkUpLimit.position;
+        _direction = _walkUpLimit;
 
         _Rigidbody2D = GetComponent<Rigidbody2D>();
     }
@@ -28,19 +29,19 @@ public class AIMove : MonoBehaviour
     {
         _toDestination = _direction - transform.position;
         _Rigidbody2D.AddForce(_toDestination.normalized * speed * Time.deltaTime);
-        //Debug.Log(_toDestination.sqrMagnitude);
+        Debug.Log(_toDestination.sqrMagnitude);
 
         if (_toDestination.sqrMagnitude <= 1)
 		{
             _Rigidbody2D.velocity = new Vector2(0, 0);
 
-            if (_direction == _walkUpLimit.position)
+            if (_direction == _walkUpLimit)
 			{
-                _direction = _walkDownLimit.position;
+                _direction = _walkDownLimit;
 			}
 			else
 			{
-                _direction = _walkUpLimit.position;
+                _direction = _walkUpLimit;
             }
 		}
     }
